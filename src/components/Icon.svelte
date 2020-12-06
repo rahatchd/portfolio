@@ -18,7 +18,7 @@
     width: 90px;
     height: 90px;
     padding: 10px;
-    margin: 3px;
+    margin: 5px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +26,7 @@
     border-radius: 5%;
   }
   div:hover {
-    background-color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
   span.icon {

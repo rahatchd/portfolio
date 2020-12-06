@@ -8,7 +8,7 @@
   const min_height = 860;
 
   export let title: string = 'untitled';
-  export let x: number = Math.round(Math.random() * 200) + 50;
+  export let x: number = Math.round(Math.random() * 200) + 100;
   export let y: number = Math.round(Math.random() * 50) + 50;
   export let w: number = min_width;
   export let h: number = min_height;
@@ -21,7 +21,7 @@
   style={`top: ${y}px; left: ${x}px; height: ${h}px; width: ${w}px;`}
   on:mousedown={() => dispatch('focus', { title })}
   in:scale={{ duration: 100 }}
-  out:fade={{ duration: 100 }}
+  out:fade={{ duration: 150 }}
 >
   <header
     use:pannable
@@ -41,7 +41,7 @@
     }}
   >
     <h1>{title}</h1>
-    <span class=close on:click={() => dispatch('close', { title })}>❌</span>
+    <span class=close on:click={() => dispatch('close', { title })}>close</span>
   </header>
   <main on:click={() => focus = true}>
     <slot name=content {focus}></slot>

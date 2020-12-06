@@ -2,6 +2,7 @@
 	import Window from './components/Window.svelte';
 	import Icon from './components/Icon.svelte';
 	import { wm } from './stores/manager';
+	import Topbar from './components/Topbar.svelte';
 
 	const apps: { icon: string, title: string, src: string }[] = [
 		{ icon: '📃', title: 'resume.md', src: './files/resume.html' },
@@ -12,6 +13,7 @@
 
 </script>
 
+<Topbar />
 <main>
 	{#each apps as { icon, title, src}}
 	<Icon
