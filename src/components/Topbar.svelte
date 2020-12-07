@@ -1,11 +1,14 @@
 <script lang=ts>
   import { fly, fade } from 'svelte/transition';
-  let dropdown: boolean = false;
+  import FaInstagram from 'svelte-icons/fa/FaInstagram.svelte';
+  import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
+  import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
 
-  const links: { href: string; text: string }[] = [
-    { href: 'https://github.com/rahatchd', text: 'Github' },
-    { href: 'https://www.linkedin.com/in/rahat-dhande-297122105/', text: 'Linkedin' },
-    { href: 'https://www.instagram.com/rahatchd/', text: 'Instagram' },
+  let dropdown: boolean = false;
+  const links: { href: string; text: string, icon: any }[] = [
+    { href: 'https://github.com/rahatchd', text: 'Github', icon: FaGithubSquare },
+    { href: 'https://www.linkedin.com/in/rahat-dhande-297122105/', text: 'Linkedin', icon: FaLinkedin },
+    { href: 'https://www.instagram.com/rahatchd/', text: 'Instagram', icon: FaInstagram },
   ];
 </script>
 
@@ -22,9 +25,9 @@
   >
     <p class=user>@rahatchd</p>
     <ul>
-      {#each links as { href, text }}
+      {#each links as { href, text, icon }}
       <li>
-        <a class=link {href}>{text}</a>
+        <a class=link {href}><div class=icon><svelte:component this={icon}/></div>&nbsp;{text}</a>
       </li>
       {/each}
     </ul>
@@ -45,21 +48,23 @@
     align-items: center;
   }
   a {
-    margin-right: 30px;
-    padding: 5px 10px;
+    padding: 3px 10px;
     border-radius: 10%;
+    display: flex;
+    align-items: center;
   }
   a:hover {
     background-color: rgba(200, 200, 200, 0.2);
   }
   img {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
     border: solid 1px white;
   }
   .dropdown {
     position: absolute;
+    z-index: 100;
     top: 50px;
     right: 30px;
     background-color: #eaeaea;
@@ -90,6 +95,8 @@
     margin: 1px 0;
     padding: 10px 0;
     border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
+    display: flex;
+    flex-direction: row;
   }
   li:last-child {
     border: none;
@@ -99,11 +106,15 @@
   }
   .link {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     text-decoration: none;
     text-transform: none;
     width: 100%;
     color: #222;
     background: none;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
   }
 </style>

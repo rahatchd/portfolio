@@ -4,22 +4,27 @@
   import { fade, scale } from 'svelte/transition';
 
   const dispatch = createEventDispatcher();
-  const min_width = 1100;
-  const min_height = 860;
+  const min_width = 600;
+  const min_height = 500;
 
   export let title: string = 'untitled';
+  export let zidx: number = 0;
   export let x: number = Math.round(Math.random() * 200) + 100;
   export let y: number = Math.round(Math.random() * 50) + 50;
   export let w: number = min_width;
   export let h: number = min_height;
+
+  $: console.log(zidx);
   
   let focus: boolean = false;
-  let engaged: boolean = false;
 </script>
 
 <article
-  style={`top: ${y}px; left: ${x}px; height: ${h}px; width: ${w}px;`}
-  on:mousedown={() => dispatch('focus', { title })}
+  style={`top: ${y}px; left: ${x}px; height: ${h}px; width: ${w}px; z-index: ${zidx}`}
+  on:mousedown={() => {
+    dispatch('focus', { title });
+    console.log(`focusing ${focus} for ${title}`);
+  }}
   in:scale={{ duration: 100 }}
   out:fade={{ duration: 150 }}
 >
@@ -28,7 +33,6 @@
     on:panstart={() => {
       document.body.style.cursor = 'move';
       focus = false;
-      engaged = true;
     }}
     on:panmove={({ detail }) => {
       x += detail.dx;
@@ -37,21 +41,22 @@
     on:panend={() => {
       document.body.style.cursor = 'auto';
       focus = true;
-      engaged = false;
     }}
   >
     <h1>{title}</h1>
     <span class=close on:click={() => dispatch('close', { title })}>close</span>
   </header>
-  <main on:click={() => focus = true}>
-    <slot name=content {focus}></slot>
+  <main on:click={() => {
+    dispatch('focus', { title });
+    focus = true;
+  }}>
+    <slot name=content class=content {focus}></slot>
   </main>
   <div class=resize
     use:pannable
     on:panstart={() => {
       document.body.style.cursor = 'nw-resize';
       focus = false;
-      engaged = true;
     }}
     on:panmove={({ detail }) => {
       w = Math.max(min_width, w + detail.dx);
@@ -60,7 +65,6 @@
     on:panend={() => {
       document.body.style.cursor = 'auto';
       focus = true;
-      engaged = false;
     }}
   />
 </article>
@@ -101,11 +105,21 @@
     cursor: pointer;
   }
   main {
+    position:relative;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
     height: 100%;
     background-color: white;
+  }
+  .content {
+    position:relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
   }
   div.resize {
     position: absolute;
@@ -116,5 +130,10 @@
   }
   div.resize:hover {
     cursor: nw-resize;
+  }
+  iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
   }
 </style>

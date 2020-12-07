@@ -2,14 +2,15 @@
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
 
-  export let icon: string = '📄';
+  export let icon: any;
   export let title: string = 'untitled';
+  export let color: string = 'grey';
 
   const dispatch = createEventDispatcher();
 </script>
 
 <div transition:fade on:dblclick={() => dispatch('launch', { title })}>
-  <span class=icon>{icon}</span>
+  <span class=icon style={`color: ${color};`}><svelte:component this={icon}/></span>
   <span class=caption>{title}</span>
 </div>
 
@@ -22,18 +23,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     border-radius: 5%;
   }
   div:hover {
     background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
-  span.icon {
-    font-size: 40px;
-    text-align: center;
+  .icon {
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
   }
-  span.caption {
+  .caption {
     margin-top: 5px;;
     font-size: 14px;
     text-align: center;
