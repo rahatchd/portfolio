@@ -1,10 +1,15 @@
-<h1>Rahat Dhande</h1>
-<strong>
-  A hardware dev from a software perspective
-</strong>
+<section>
+  <h1>Rahat Dhande</h1>
+  <strong>
+    Robotics Software Engineer with industry experience in general purpose
+    robots and background in theoretical physics and math.
+  </strong>
 
-<h2>Education</h2>
-<p>Engineering Physics UBC 2019</p>
-<i>Graduated with Distinction and a Minor in Honours Mathematics</i>
+  <p>View <a href="https://github.com/rahatchd/reports/blob/main/Rahat_Dhande_Resume.pdf">pdf</a></p>
+</section>
 
-<h1>#TODO</h1>
+<style>
+  section {
+    padding: 0.5em 1em;
+  }
+</style>
