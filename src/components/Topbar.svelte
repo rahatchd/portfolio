@@ -14,7 +14,7 @@
 
 <header>
   <a href="#" on:click={() => dropdown = !dropdown}>
-  <img src={`/img/dropdown-${dropdown ? 'open' : 'closed'}.jpeg`} alt="avatar"/>
+  <img src={`./img/dropdown-${dropdown ? 'open' : 'closed'}.jpeg`} alt="avatar"/>
   </a>
 </header>
 {#if dropdown}
