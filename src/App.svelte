@@ -7,9 +7,11 @@
 	import IoIosBoat from "svelte-icons/io/IoIosBoat.svelte";
 	import GiHeartOrgan from "svelte-icons/gi/GiHeartOrgan.svelte";
 	import TiDocument from "svelte-icons/ti/TiDocument.svelte";
-	import FaCliboardList from "svelte-icons/fa/FaClipboardList.svelte";
+	import GiChecklist from "svelte-icons/gi/GiChecklist.svelte";
+	import FaRegFolder from "svelte-icons/fa/FaRegFolder.svelte";
 	import Resume from "./files/Resume.svelte";
 	import Todo from "./files/Todo.svelte";
+	import Docs from "./files/Docs.svelte";
 
 	const apps: {
 		icon: any;
@@ -23,35 +25,42 @@
 			comp: Resume,
 			title: "resume.md",
 			src: "",
-			color: "orange",
+			color: "#ffd700",
+		},
+		{
+			icon: FaRegFolder,
+			comp: Docs,
+			title: "docs/",
+			src: "",
+			color: "#aaaaaa",
 		},
 		{
 			icon: IoIosBoat,
 			comp: undefined,
 			title: "rock-the-boat.exe",
 			src: "https://rahatchd.github.io/rock-the-boat/",
-			color: "#2299aa",
+			color: "#2288bb",
 		},
 		{
 			icon: GiMonoWheelRobot,
 			comp: undefined,
 			title: "das-pan.exe",
 			src: "https://rahatchd.github.io/das_pan/",
-			color: "#22bb99",
+			color: "#22bb88",
 		},
 		{
 			icon: GiHeartOrgan,
 			comp: undefined,
 			title: "little-hearts.exe",
 			src: "https://rahatchd.github.io/littlehearts/",
-			color: "#bb2233",
+			color: "#aa2233",
 		},
 		{
-			icon: FaCliboardList,
+			icon: GiChecklist,
 			comp: Todo,
 			title: "TODO.txt",
 			src: "",
-			color: "grey",
+			color: "#111111",
 		},
 	];
 	let background;
