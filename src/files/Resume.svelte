@@ -5,7 +5,7 @@
     robots and background in theoretical physics and math.
   </strong>
 
-  <p>View <a href="https://github.com/rahatchd/reports/blob/main/Rahat_Dhande_Resume.pdf">pdf</a></p>
+  <p>View <a href="https://github.com/rahatchd/reports/blob/main/Rahat_Dhande_Resume.pdf" target="_blank">pdf</a></p>
 </section>
 
 <style>
