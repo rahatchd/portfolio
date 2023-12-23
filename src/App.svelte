@@ -9,6 +9,7 @@
 	import TiDocument from "svelte-icons/ti/TiDocument.svelte";
 	import GiChecklist from "svelte-icons/gi/GiChecklist.svelte";
 	import FaRegFolder from "svelte-icons/fa/FaRegFolder.svelte";
+	import GiArm from "svelte-icons/gi/GiArm.svelte";
 	import Resume from "./files/Resume.svelte";
 	import Todo from "./files/Todo.svelte";
 	import Docs from "./files/Docs.svelte";
@@ -33,6 +34,13 @@
 			title: "docs/",
 			src: "",
 			color: "#aaaaaa",
+		},
+		{
+			icon: GiArm,
+			comp: undefined,
+			title: "akara.exe",
+			src: "https://rahatchd.github.io/akara-demo/",
+			color: "#d499ed",
 		},
 		{
 			icon: IoIosBoat,
@@ -93,6 +101,7 @@
 			}}
 			let:focus
 			zidx={idx}
+			min_width={comp ? 600 : 1000}
 		>
 			<div slot="content" class="content">
 				{#if comp}

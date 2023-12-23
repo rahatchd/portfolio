@@ -71,7 +71,7 @@
     color: #222;
     border-radius: 3px;
     border: solid #222 1px;
-    width: 15vw;
+    width: 300px;
     min-height: 5vh;
     display: flex;
     flex-direction: column;

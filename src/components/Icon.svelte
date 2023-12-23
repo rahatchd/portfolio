@@ -1,17 +1,19 @@
-<script lang=ts>
-  import { createEventDispatcher } from 'svelte';
-  import { fade } from 'svelte/transition';
+<script lang="ts">
+  import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
 
   export let icon: any;
-  export let title: string = 'untitled';
-  export let color: string = 'grey';
+  export let title: string = "untitled";
+  export let color: string = "grey";
 
   const dispatch = createEventDispatcher();
 </script>
 
-<div transition:fade on:dblclick={() => dispatch('launch', { title })}>
-  <span class=icon style={`color: ${color};`}><svelte:component this={icon}/></span>
-  <span class=caption>{title}</span>
+<div transition:fade on:dblclick={() => dispatch("launch", { title })}>
+  <span class="icon" style={`color: ${color};`}>
+    <svelte:component this={icon} />
+  </span>
+  <span class="caption">{title}</span>
 </div>
 
 <style>
@@ -36,7 +38,7 @@
     width: 40px;
   }
   .caption {
-    margin-top: 5px;;
+    margin-top: 5px;
     font-size: 14px;
     text-align: center;
   }

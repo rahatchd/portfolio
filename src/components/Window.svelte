@@ -4,8 +4,8 @@
   import { fade, scale } from 'svelte/transition';
 
   const dispatch = createEventDispatcher();
-  const min_width = 600;
-  const min_height = 500;
+  export let min_width = 600;
+  export let min_height = 500;
 
   export let title: string = 'untitled';
   export let zidx: number = 0;
@@ -14,8 +14,6 @@
   export let w: number = min_width;
   export let h: number = min_height;
 
-  $: console.log(zidx);
-  
   let focus: boolean = false;
 </script>
 
@@ -23,7 +21,6 @@
   style={`top: ${y}px; left: ${x}px; height: ${h}px; width: ${w}px; z-index: ${zidx}`}
   on:mousedown={() => {
     dispatch('focus', { title });
-    console.log(`focusing ${focus} for ${title}`);
   }}
   in:scale={{ duration: 100 }}
   out:fade={{ duration: 150 }}
@@ -44,9 +41,9 @@
     }}
   >
     <h1>{title}</h1>
-    <span class=close on:click={() => dispatch('close', { title })}>close</span>
+    <span class=close on:mouseup={() => dispatch('close', { title })}>close</span>
   </header>
-  <main on:click={() => {
+  <main on:mousedown={() => {
     dispatch('focus', { title });
     focus = true;
   }}>
