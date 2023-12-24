@@ -14,6 +14,8 @@
   export let w: number = min_width;
   export let h: number = min_height;
 
+  export let is_iframe: boolean = false;
+
   let focus: boolean = false;
 </script>
 
@@ -43,7 +45,7 @@
     <h1>{title}</h1>
     <span class=close on:mouseup={() => dispatch('close', { title })}>close</span>
   </header>
-  <main on:mousedown={() => {
+  <main class:iframe={is_iframe} on:mousedown={() => {
     dispatch('focus', { title });
     focus = true;
   }}>
@@ -106,10 +108,13 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     width: 100%;
     height: 100%;
     background-color: white;
+  }
+  .iframe {
+    overflow-y: hidden;
   }
   .content {
     position:relative;

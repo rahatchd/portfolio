@@ -10,7 +10,7 @@
 	import GiChecklist from "svelte-icons/gi/GiChecklist.svelte";
 	import FaRegFolder from "svelte-icons/fa/FaRegFolder.svelte";
 	import GiArm from "svelte-icons/gi/GiArm.svelte";
-	import Resume from "./files/Resume.svelte";
+	import Readme from "./files/Readme.svelte";
 	import Todo from "./files/Todo.svelte";
 	import Docs from "./files/Docs.svelte";
 
@@ -23,8 +23,8 @@
 	}[] = [
 		{
 			icon: TiDocument,
-			comp: Resume,
-			title: "resume.md",
+			comp: Readme,
+			title: "Readme.md",
 			src: "",
 			color: "#ffd700",
 		},
@@ -59,7 +59,7 @@
 		{
 			icon: GiHeartOrgan,
 			comp: undefined,
-			title: "little-hearts.exe",
+			title: "lil-hearts.exe",
 			src: "https://rahatchd.github.io/littlehearts/",
 			color: "#aa2233",
 		},
@@ -72,6 +72,8 @@
 		},
 	];
 	let background;
+
+	wm.add(apps[0])
 </script>
 
 <svelte:body
@@ -102,6 +104,7 @@
 			let:focus
 			zidx={idx}
 			min_width={comp ? 600 : 1000}
+			is_iframe={comp ? false : true}
 		>
 			<div slot="content" class="content">
 				{#if comp}
